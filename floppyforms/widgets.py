@@ -111,11 +111,14 @@ class Input(Widget):
             context['datalist'] = self.datalist
         return context
 
-    def render(self, name, value, attrs=None, **kwargs):
+    def render(self, name, value, attrs=None, renderer=None, **kwargs):
         template_name = kwargs.pop('template_name', None)
         if template_name is None:
             template_name = self.template_name
-        context = self.get_context(name, value, attrs=attrs or {}, **kwargs)
+        widget_attrs = self.attrs.copy() if self.attrs else {}
+        if attrs:
+            widget_attrs.update(attrs)
+        context = self.get_context(name, value, attrs=widget_attrs)
         context = flatten_contexts(self.context_instance, context)
         return loader.render_to_string(template_name, context)
 
