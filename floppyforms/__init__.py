@@ -20,4 +20,4 @@ except ImportError:
 #     warnings.warn(
 #         "Unable to import floppyforms.gis, geometry widgets not available")
 
-__version__ = '1.7.2.apidev'
+__version__ = '1.7.2'
