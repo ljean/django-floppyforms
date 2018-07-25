@@ -1,10 +1,6 @@
 django-floppyforms
 ==================
 
-.. image:: https://api.travis-ci.org/gregmuellegger/django-floppyforms.png
-   :alt: Build Status
-   :target: https://travis-ci.org/gregmuellegger/django-floppyforms
-
 Full control of form rendering in the templates.
 
 * Authors: Gregor Müllegger and many many `contributors`_
@@ -15,10 +11,18 @@ Full control of form rendering in the templates.
 .. _contributors: https://github.com/gregmuellegger/django-floppyforms/contributors
 .. _this: http://diveintohtml5.info/forms.html
 
+********************************************
+* THIS IS AN UNOFFICIAL FORK FROM django-floppyforms
+* It fixes support of Django 1.11
+* USE WITH CARE
+********************************************
+
+
 Installation
 ------------
 
-* ``pip install -U django-floppyforms``
+
+* ``pip install -U apidev_django-floppyforms``
 * Add ``floppyforms`` to your ``INSTALLED_APPS``
 
 For extensive documentation see the ``docs`` folder or `read it on
@@ -40,7 +44,7 @@ Create a ticket in the `issues section on github`_ or ask your questions on the
 You can get professional consulting regarding django-floppyforms or any other
 Django related work from django-floppyforms' maintainer `Gregor Müllegger`_.
 
-.. _issues section on github: https://github.com/gregmuellegger/django-floppyforms/issues
+.. _issues section on github: https://github.com/ljean/django-floppyforms/issues
 .. _Gregor Müllegger: http://gremu.net/
 
 Bugs
@@ -56,7 +60,7 @@ Thanks for asking!
 
 Get the code::
 
-    git clone git@github.com:gregmuellegger/django-floppyforms.git
+    git clone git@github.com:ljean/django-floppyforms.git
     cd django-floppyforms
     virtualenv -p python2 env
     source env/bin/activate

@@ -21,13 +21,13 @@ def find_version(*file_paths):
 
 
 setup(
-    name='django-floppyforms',
+    name='apidev_django-floppyforms',
     version=find_version('floppyforms', '__init__.py'),
-    author='Gregor Müllegger',
-    author_email='gregor@muellegger.de',
+    author='Luc Jean > fork from Gregor Müllegger',
+    author_email='ljean@apidev.fr',
     packages=find_packages(exclude=["tests.*", "tests"]),
     include_package_data=True,
-    url='https://github.com/gregmuellegger/django-floppyforms',
+    url='https://github.com/ljean/django-floppyforms',
     license='BSD licence, see LICENSE file',
     description='Full control of form rendering in the templates',
     long_description='\n\n'.join((
@@ -44,6 +44,7 @@ setup(
         'Framework :: Django :: 1.8',
         'Framework :: Django :: 1.9',
         'Framework :: Django :: 1.10',
+        'Framework :: Django :: 1.11',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
@@ -54,6 +55,7 @@ setup(
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
     zip_safe=False,
 )
