@@ -141,10 +141,10 @@ class PasswordInput(TextInput):
         super(PasswordInput, self).__init__(attrs)
         self.render_value = render_value
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, **kwargs):
         if not self.render_value:
             value = None
-        return super(PasswordInput, self).render(name, value, attrs)
+        return super(PasswordInput, self).render(name, value, attrs, **kwargs)
 
 
 class HiddenInput(Input):
@@ -158,7 +158,7 @@ class MultipleHiddenInput(HiddenInput):
         super(MultipleHiddenInput, self).__init__(attrs)
         self.choices = choices
 
-    def render(self, name, value, attrs=None, choices=()):
+    def render(self, name, value, attrs=None, choices=(), **kwargs):
         if value is None:
             value = []
 
@@ -209,11 +209,11 @@ class FileInput(Input):
     needs_multipart_form = True
     omit_value = True
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, **kwargs):
         if self.omit_value:
             # File inputs can't render an existing value if it's not saved
             value = None
-        return super(FileInput, self).render(name, value, attrs=attrs)
+        return super(FileInput, self).render(name, value, attrs=attrs, **kwargs)
 
     def value_from_datadict(self, data, files, name):
         return files.get(name, None)
@@ -669,7 +669,7 @@ class SelectDateWidget(forms.Widget):
         context['attrs'] = attrs
         return context
 
-    def render(self, name, value, attrs=None, extra_context={}):
+    def render(self, name, value, attrs=None, extra_context={}, **kwargs):
         try:
             year_val, month_val, day_val = value.year, value.month, value.day
         except AttributeError:
