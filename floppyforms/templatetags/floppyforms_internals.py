@@ -4,7 +4,7 @@ This template tag library contains tools that are used in
 ``{% load floppyforms %}``.
 """
 from django import template
-
+import ast
 
 register = template.Library()
 
@@ -22,3 +22,24 @@ def isfalse(value):
 @register.filter
 def isnone(value):
     return value is None
+
+
+def try_int(value):
+    try:
+        return int(value)
+    except (ValueError, TypeError):
+        return value
+
+
+@register.filter
+def isin(option, options):
+    try:
+        options = ast.literal_eval(options)
+    except SyntaxError:
+        pass
+    options = [try_int(elt) for elt in options]
+    try:
+        option = int(option)
+    except (TypeError, ValueError):
+        pass
+    return option in options
