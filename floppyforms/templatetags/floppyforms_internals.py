@@ -33,10 +33,11 @@ def try_int(value):
 
 @register.filter
 def isin(option, options):
-    try:
-        options = ast.literal_eval(options)
-    except SyntaxError:
-        pass
+    if isinstance(options, str):
+        try:
+            options = ast.literal_eval(options)
+        except SyntaxError:
+            pass
     options = [try_int(elt) for elt in options]
     try:
         option = int(option)
